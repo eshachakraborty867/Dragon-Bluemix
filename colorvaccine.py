@@ -18,11 +18,8 @@ def write_html(f, type, str_):
     f.write('<%(type)s>%(str)s</%(type)s>' % {
             'type': type, 'str': str_ } )
 
-
-#write_html(f, RED, 'My name is so foo..\n')
-#write_html(f, BLUE, '102838183820038.028391')
 numvaccine = 0
-for line in open('outputbluemix/hierarchyclusterLOG'):
+for line in open('FILES/words_cluster.txt'):
 	line = line.replace('........','')
 	line = line.replace('cluster: ','')
 	items = line.strip().split(" ")
@@ -36,13 +33,10 @@ for line in open('outputbluemix/hierarchyclusterLOG'):
 			clusters[i].append(item)
 			if item == 'vaccine':
 				numvaccine = i
-#print len(clusters)
+
 f = open('outputbluemix/vaccine.html', 'w')
 f.write('<html>')
 f.write(style)
-
-print numvaccine
-print clusters
 
 for line in open('vaccine_bluemix_processed.txt'):
 	items = line.strip().split(" ")
@@ -51,19 +45,4 @@ for line in open('vaccine_bluemix_processed.txt'):
 			write_html(f,'c1', item+' ')
 		else:
 			write_html(f, 'c0', item+' ')
-
-
-
-
-
-
-		
-
-
-
-
-
-
-
-
 		

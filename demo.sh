@@ -1,15 +1,21 @@
-mkdir outputbluemix
+mkdir FILES
 
-echo "Naive Implementation based on Frequency count of words: "
-python wordfreq.py 
+echo "\n"
+echo "Cleaning data..."
+python cleaning.py
 
-echo "Cosine Similarity: GloVe"
-python cosineSimilarity.py > outputbluemix/cosineSimilarityLOG
+echo "\n"
+echo "Cosine Similarity: GloVe - Take the GloVe vectors and write those vectors (to words_vector.txt) which are of importance to the current document."
+python cosineSimilarity.py
 
-echo "cosineSimilarity 1"
-python cosineSimilarity_1.py > outputbluemix/cosineSimilarityLOG1
+echo "\n"
+echo "cosineSimilarity - Compute the cosine distances between the word vector under consideration and threshold them"
+python cosineSimilarity_1.py
 
-python hierarchy.py > outputbluemix/hierarchyclusterLOG
+echo "\n"
+echo "hierarchical clustering - average clustering to bring similar words together"
+python hierarchy.py
 
-#python colorCode.py
+echo "\n"
+echo "Preparing the HTML document : color code the cluster about vaccine"
 python colorvaccine.py
