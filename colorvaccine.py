@@ -20,8 +20,6 @@ def write_html(f, type, str_):
 
 numvaccine = 0
 for line in open('FILES/words_cluster.txt'):
-	line = line.replace('........','')
-	line = line.replace('cluster: ','')
 	items = line.strip().split(" ")
 
 	for item in items:
@@ -34,11 +32,11 @@ for line in open('FILES/words_cluster.txt'):
 			if item == 'vaccine':
 				numvaccine = i
 
-f = open('outputbluemix/vaccine.html', 'w')
+f = open('FILES/vaccine.html', 'w')
 f.write('<html>')
 f.write(style)
 
-for line in open('vaccine_bluemix_processed.txt'):
+for line in open('FILES/vaccine.txt'):
 	items = line.strip().split(" ")
 	for item in items:
 		if item in clusters[numvaccine]:

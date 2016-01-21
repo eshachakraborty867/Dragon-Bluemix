@@ -25,15 +25,11 @@ z = hac.linkage(a, 'average')
 arr = hac.fcluster(z, 0.5*max(z[:,2]), 'distance')
 uniquearr = set(arr)
 
-fp = open("FILES/words_cluster.txt", 'w')
 for uniqueitem in uniquearr:
-	fp.write(uniqueitem)
-	fp.write("\n")
+	print uniqueitem
 	for i in xrange(len(arr)):
 		if arr[i]==uniqueitem:
 			if wordlist[i] not in stopwords:
-				fp.write(wordlist[i])
-				fp.write("\n")
-fp.close()
+				print wordlist[i]
 
 	

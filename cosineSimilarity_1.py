@@ -21,7 +21,7 @@ for ref_line in open('FILES/words_vector.txt'):
 
 		if (word != ref_word) and (((1 - spatial.distance.cosine(ref_vec, vec)) - 0.44) >= 0.0):
 			cosine_dict[ref_word][word] = 1 - spatial.distance.cosine(ref_vec, vec)
-			fp.write(ref_word+','+word+','+cosine_dict[ref_word][word])
+			fp.write(ref_word+','+word+','+str(cosine_dict[ref_word][word]))
 			fp.write("\n")
 fp.close()
 			
